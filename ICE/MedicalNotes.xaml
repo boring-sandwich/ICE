@@ -1,0 +1,281 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="ICE.MedicalNotes"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <phone:Pivot Name="myPivot"  Title="GeekyPanda's In Case of Emergency App">
+            <!--Pivot item one-->
+            <phone:PivotItem Header="allergies" TabIndex="0">
+
+                <ScrollViewer>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Name="txbAllergies" Grid.Row="0" Margin="12"                             
+                         TextWrapping="Wrap" />
+                        <TextBox Name="txtAllergies" Grid.Row="0"
+                         InputScope="Default" IsReadOnly="True"
+                         TextWrapping="Wrap"
+                         Text="" AcceptsReturn="True" 
+                         GotFocus="textBox_GotFocus"
+                    />
+                    </Grid>
+                </ScrollViewer>
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="conditions">
+                <ScrollViewer>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Name="txbMedicalConditions" Grid.Row="0" Margin="12"                             
+                         TextWrapping="Wrap"/>
+                        <TextBox Name="txtMedicalConditions" Grid.Row="0"
+                         InputScope="Default" IsReadOnly="True"
+                         TextWrapping="Wrap"
+                         Text="" AcceptsReturn="True" 
+                         GotFocus="textBox_GotFocus"
+                    />
+                    </Grid>
+                </ScrollViewer>
+            </phone:PivotItem>
+
+            <!--Pivot item three-->
+            <phone:PivotItem Header="medicines">
+                <ScrollViewer>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Name="txbMedicines" Grid.Row="0" Margin="12"                             
+                         TextWrapping="Wrap" />
+                        <TextBox Name="txtMedicines" Grid.Row="0"
+                         InputScope="Default" IsReadOnly="True"
+                         TextWrapping="Wrap"
+                         Text="" AcceptsReturn="True" 
+                         GotFocus="textBox_GotFocus"
+                    />
+                    </Grid>
+                </ScrollViewer>
+            </phone:PivotItem>
+
+            <!--Pivot item four-->
+            <phone:PivotItem Header="blood group">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <RadioButton Name="rad1" GroupName="radBloodGroup"
+                             Content="0-"/>
+                        <RadioButton Name="rad3" GroupName="radBloodGroup"
+                             Content="A-"/>
+                        <RadioButton Name="rad5" GroupName="radBloodGroup"
+                             Content="B-"/>
+                        <RadioButton Name="rad7" GroupName="radBloodGroup"
+                             Content="AB-"/>
+                        <RadioButton Name="rad9" GroupName="radBloodGroup"
+                             Content="Don't Know"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <RadioButton Name="rad2" GroupName="radBloodGroup"
+                             Content="0+"/>
+                        <RadioButton Name="rad4" GroupName="radBloodGroup"
+                             Content="A+"/>
+                        <RadioButton Name="rad6" GroupName="radBloodGroup"
+                             Content="B+"/>
+                        <RadioButton Name="rad8" GroupName="radBloodGroup"
+                             Content="AB+"/>
+
+                    </StackPanel>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item five-->
+            <phone:PivotItem Header="notes">
+                <ScrollViewer>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Name="txbAdditionalNotes" Grid.Row="0" Margin="12"
+                                   TextWrapping="Wrap"
+                               />
+                        <TextBox Name="txtAdditionalNotes" Grid.Row="0"
+                         InputScope="Default" IsReadOnly="True"
+                         TextWrapping="Wrap"
+                         Text="" AcceptsReturn="True" 
+                         GotFocus="textBox_GotFocus"
+                    />                        
+                    </Grid>
+                </ScrollViewer>
+            </phone:PivotItem>
+            <!--Pviot item six-->
+            <phone:PivotItem Header="doctor info">
+                <ScrollViewer>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="8*" />
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0"
+                                   Style="{StaticResource PhoneTextLargeStyle}"
+                                   Margin="9"
+                                   VerticalAlignment="Top"
+                                   Text="doctor:" 
+                                   />
+                        <TextBlock Name="txbDoctorsInfo" Grid.Row="0" Grid.Column="1"
+                                   Margin="12"
+                                   FontWeight="Bold"
+                                   TextWrapping="Wrap"
+                                   Tap="PhoneDoctor_Tap"
+                                   />
+
+                        <TextBlock Grid.Row="1" Grid.Column="0"
+                                   Style="{StaticResource PhoneTextLargeStyle}"
+                                   Margin="9"
+                                   VerticalAlignment="Top"
+                                   Text="dentist:" 
+                                   />
+                        <TextBlock Name="txbDentistInfo" Grid.Row="1" Grid.Column="1"
+                                   Margin="12"
+                                   FontWeight="Bold"
+                                   TextWrapping="Wrap"
+                                   Tap="PhoneDentist_Tap"
+                                   />
+
+                        <!--health insurance-->
+                        <TextBlock Grid.Row="2" Grid.ColumnSpan="2"
+                                   Style="{StaticResource PhoneTextExtraLargeStyle}"
+                                   Text="health insurance"
+                                   />
+
+                        <TextBlock Grid.Row="3" Grid.Column="0"
+                                   Style="{StaticResource PhoneTextLargeStyle}"
+                                   Margin="9"
+                                   VerticalAlignment="Top"
+                                   Text="carrier:"
+                                   />
+                        <TextBlock Name="txbCarrierInfo" Grid.Row="3" Grid.Column="1"
+                                   Margin="12"
+                                   FontWeight="Bold"
+                                   TextWrapping="Wrap"
+                                   Tap="PhoneCarrier_Tap"
+                                   />
+                        <TextBlock Grid.Row="4" Grid.Column="0"
+                                   Style="{StaticResource PhoneTextLargeStyle}"
+                                   VerticalAlignment="Top"
+                                   Text="id:"
+                                   />
+                        <TextBlock Name="txbIDInfo" Grid.Row="4" Grid.Column="1"
+                                   Margin="12"
+                                   FontWeight="Bold"
+                                   TextWrapping="Wrap"
+                                   />
+                        <TextBox Name="txtIDInfo" Grid.Row="4" Grid.Column="1"
+                                 InputScope="Default" IsReadOnly="True"
+                                 TextWrapping="Wrap"
+                                 Text=""
+                                 GotFocus="textBox_GotFocus"
+                                 KeyDown="MoveDown_KeyDown"
+                                 />
+
+                        <TextBlock Grid.Row="5" Grid.Column="0"
+                                   Style="{StaticResource PhoneTextLargeStyle}"
+                                   VerticalAlignment="Top"
+                                   Text="network:"
+                                   />
+                        <TextBlock Name="txbNetworkInfo" Grid.Row="5" Grid.Column="1"
+                                   Margin="12"
+                                   FontWeight="Bold"
+                                   TextWrapping="Wrap"
+                                   />
+                        <TextBox Name="txtNetworkInfo" Grid.Row="5" Grid.Column="1"
+                                 InputScope="Default" IsReadOnly="True"
+                                 TextWrapping="Wrap"
+                                 Text=""
+                                 GotFocus="textBox_GotFocus"
+                                 KeyDown="MoveDown_KeyDown"
+                                 />
+
+                        <TextBlock Grid.Row="6" Grid.Column="0"
+                                   Style="{StaticResource PhoneTextLargeStyle}"
+                                   VerticalAlignment="Top"
+                                   Text="group:"
+                                   />
+                        <TextBlock Name="txbGroupInfo" Grid.Row="6" Grid.Column="1"
+                                   Margin="12"
+                                   FontWeight="Bold"
+                                   TextWrapping="Wrap"
+                                   />
+                        <TextBox Name="txtGroupInfo" Grid.Row="6" Grid.Column="1"
+                                 InputScope="Default" IsReadOnly="True"
+                                 TextWrapping="Wrap"
+                                 Text=""
+                                 GotFocus="textBox_GotFocus"
+                                 KeyDown="MoveDown_KeyDown"
+                                 />
+
+                        <!--additional insurance-->
+                        <TextBlock Grid.Row="7" Grid.ColumnSpan="2"
+                                   Style="{StaticResource PhoneTextExtraLargeStyle}"
+                                   Text="additional"
+                                   />
+                        
+                            <TextBlock Name="txbAdditionalInfo" Grid.Row="8" Grid.ColumnSpan="2"
+                                   Margin="12"
+                                   FontWeight="Bold"
+                                   TextWrapping="Wrap"
+                                   />
+                        <ScrollViewer Grid.Row="8" Grid.ColumnSpan="2">
+                            <TextBox Name="txtAdditionalInfo"
+                                 InputScope="Default" IsReadOnly="True"
+                                 TextWrapping="Wrap"
+                                 Text="" AcceptsReturn="True"
+                                 GotFocus="textBox_GotFocus"
+                                 />
+
+                        </ScrollViewer>
+                        <!--A bit of space-->
+                        <TextBlock Name="txtEmpty" Grid.Row="9" Grid.ColumnSpan="2"
+                                   Text=""/>
+                        <ScrollBar Grid.RowSpan="9" Grid.Column="2" Visibility="Visible" HorizontalAlignment="Left" Margin="300,10,0,0" VerticalAlignment="Top"/>
+                    </Grid>
+                </ScrollViewer>
+            </phone:PivotItem>
+
+        </phone:Pivot>
+    </Grid>
+
+</phone:PhoneApplicationPage>

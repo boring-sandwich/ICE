@@ -1,0 +1,157 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="ICE.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
+    xmlns:local="clr-namespace:ICE"
+    
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--TitlePanel contains the name of the application and page title-->
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="3" 
+                Text="GeekyPanda's In Case of Emergency App" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Grid.Row="1" Grid.Column="0"
+                       Margin="12, 0"
+                   Style="{StaticResource PhoneTextExtraLargeStyle}"  
+                   Text="my name:"
+                   />
+            <TextBlock Name="txbPhoneOwnersName" Grid.Row="1" Grid.Column="1" 
+                       Margin="9"
+                       VerticalAlignment="Center"
+                       FontWeight="Bold"
+                       Style="{StaticResource PhoneTextLargeStyle}"/>
+            <TextBox Name="txtPhoneOwnersName"
+                     Grid.Row="1" Grid.Column="1"
+                 BorderThickness="0"
+                 InputScope="PersonalFullName" IsReadOnly="True"
+                 HorizontalAlignment="Left"
+                     GotFocus="textBox_GotFocus" KeyDown="txtPhoneOwnersName_KeyDown"
+                     
+                     />
+        </Grid>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid x:Name="gridBody" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="2"
+                       Margin="6, 0" 
+                       Foreground="Red" Style="{StaticResource PhoneTextExtraLargeStyle}"
+                       Text="emergency contacts"
+                       />
+                <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Tap="PhoneOne_Tap"
+                               Style="{StaticResource PanoramaItemHeaderTextStyle}"
+                               Text="#1" />
+                    <TextBlock x:Name="txtEmergencyContactOneName" Grid.Row="0" Grid.Column="1"
+                               Margin="9, 18"
+                               FontWeight="Bold"
+                               Tap="PhoneOne_Tap" 
+                             TextWrapping="Wrap"
+                             Style="{StaticResource PhoneTextNormalStyle}"
+                             VerticalAlignment="Top"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Tap="PhoneTwo_Tap"
+                               Style="{StaticResource PanoramaItemHeaderTextStyle}"
+                               Text="#2" />
+                    <TextBlock x:Name="txtEmergencyContactTwoName" Grid.Row="1" Grid.Column="1"
+                               Margin="9, 18"
+                               FontWeight="Bold"
+                             Tap="PhoneTwo_Tap"
+                             TextWrapping="Wrap"
+                             Style="{StaticResource PhoneTextNormalStyle}"
+                             VerticalAlignment="Top"
+                             />
+                </Grid>
+                <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
+                    <TextBlock 
+                           Margin="6, 0"
+                           Style="{StaticResource PhoneTextExtraLargeStyle}"
+                           Foreground="Red"
+                           Text="medical information"
+                           />
+                    <TextBlock x:Name="txbDoctorInfo"
+                               Margin="30, 0"
+                               Style="{StaticResource PhoneTextLargeStyle}"
+                               Tap="txbDoctorInfo_Tap"
+                               Text="doctor info"
+                               />
+                    <TextBlock x:Name="txbAllergies"
+                           Margin="30, 0"
+                           Style="{StaticResource PhoneTextLargeStyle}"
+                               Tap="txbAllergies_Tap"
+                           Text="allergies"
+                           />
+                    <TextBlock x:Name="txbMedConditions"
+                           Margin="30, 0"
+                           Style="{StaticResource PhoneTextLargeStyle}"
+                               Tap="txbMedicalConditions_Tap"
+                           Text="medical conditions"
+                           />
+                    <TextBlock x:Name="txbMedicines"
+                           Margin="30, 0"
+                           Style="{StaticResource PhoneTextLargeStyle}"
+                               Tap="txbMedicines_Tap"
+                           Text="medicines"
+                           />
+                    <TextBlock x:Name="txbBlood"
+                           Margin="30, 0"
+                           Style="{StaticResource PhoneTextLargeStyle}"
+                               Tap="txbBlood_Tap"
+                           Text="blood group"
+                           />
+                    <TextBlock x:Name="txbAdditional"
+                           Margin="30, 0"
+                           Style="{StaticResource PhoneTextLargeStyle}"
+                               Tap="txbAdditional_Tap"
+                           Text="additional notes"
+                           />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

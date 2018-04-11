@@ -1,0 +1,84 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="ICE.About"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="GeekyPanda's In Case of Emergency App" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="about" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Row 0 Column 0-->
+                <Image x:Name="imgLogo" Grid.Row="0" Grid.Column="0"
+                       Source="/Assets/GeekyPandaLogo.png"
+                       Tap="imgLogo_Tap"/>
+                <!--Row 0 Column 1-->
+                <Image x:Name="imgAppIcon" Grid.Row="0" Grid.Column="1"
+                       Source="/Assets/GeekyPandaEmergencyLogo.png"
+                       Tap="imgAppIcon_Tap"/>
+                <!--Row 1 Column 0-->
+                <TextBlock Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap" HorizontalAlignment="Center"
+                           Style="{StaticResource PhoneTextLargeStyle}"
+                           Text="Copyright 2014 by GeekyPanda" />
+
+                <!--Row 2 Column 0-->
+                <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
+                    <TextBlock x:Name="txbMoreApps" TextWrapping="Wrap" HorizontalAlignment="Center"
+                           Style="{StaticResource PhoneTextLargeStyle}" Margin="0,50,0,0"
+                           Tap="txbMoreApps_Tap"
+                           Text="More Apps by GeekyPanda"  />
+                    <TextBlock x:Name="txbRateApp" TextWrapping="Wrap" HorizontalAlignment="Center"
+                           Style="{StaticResource PhoneTextLargeStyle}" Margin="0,30,0,0"
+                           Tap="txbRateApp_Tap"
+                           Text="Rate this App"  />
+                    <TextBlock x:Name="txbShareApp" TextWrapping="Wrap" HorizontalAlignment="Center"
+                           Style="{StaticResource PhoneTextLargeStyle}" Margin="0,30,0,0"
+                           Tap="txbShareApp_Tap"
+                           Text="Share this App"  />
+                </StackPanel>
+                <!--Row 3 Column 0-->
+                <TextBlock x:Name="txbAgreementMessage" Grid.Row="4" Grid.ColumnSpan="2" TextWrapping="Wrap" HorizontalAlignment="Center"
+                           Style="{StaticResource PhoneTextLargeStyle}"
+                           Tap="txbAgreementMessage_Tap"
+                           Text="User Agreement"    />
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
